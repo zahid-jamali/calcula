@@ -3,285 +3,147 @@ import { PageContent } from '../types';
 export const content: PageContent = {
   metaTitle: 'Calculadora de Liquidación Laboral 2026 | Calcula',
   metaDescription:
-    'Calcula tu liquidación laboral en Colombia 2026 con base en el CST: cesantías, intereses, prima de servicios y vacaciones. Consulta gratis.',
-  h1: 'Calculadora de Liquidación Laboral 2026',
+    'Calcule su liquidación laboral 2026 en Colombia: cesantías, intereses, prima, vacaciones, salario pendiente e indemnización del art. 64 CST. Gratis.',
+  h1: 'Calculadora de Liquidación Laboral 2026 en Colombia',
   quickAnswer:
-    'La liquidación laboral en Colombia comprende el pago de las prestaciones sociales pendientes al finalizar el contrato: cesantías acumuladas, intereses sobre cesantías del 12% anual, prima de servicios semestral y vacaciones proporcionales. Además, incluye el auxilio de transporte para salarios de hasta dos salarios mínimos y la indemnización legal por despido injustificado.',
+    'La liquidación laboral en Colombia suma el salario pendiente, las cesantías, los intereses sobre cesantías del 12% anual, la prima de servicios y las vacaciones no disfrutadas. Si lo despiden sin justa causa, se agrega la indemnización del artículo 64 del CST. Con salarios de hasta dos SMMLV, el auxilio de transporte entra en cesantías y prima.',
   howItWorks: [
     {
       step: 1,
-      title: 'Cesantías Acumuladas',
+      title: 'Base de liquidación',
       description:
-        'Ahorro obligatorio equivalente a un mes de salario por cada año laborado o proporcionalmente a la fracción de tiempo servida en el año civil.',
-      formula: '(Salario Base + Auxilio de Transporte) × Días Trabajados ÷ 360',
-      legalArticle: 'Art. 249 del Código Sustantivo del Trabajo (CST)',
+        'Salario básico más el promedio de pagos variables. Si gana hasta 2 SMMLV ($3.501.810), se suma el auxilio de transporte de $249.095 para cesantías y prima, pero no para vacaciones.',
+      formula: 'Base = salario + variables + auxilio (si aplica)',
+      legalArticle: 'CST arts. 127 y 249; Ley 1 de 1963',
     },
     {
       step: 2,
-      title: 'Intereses sobre Cesantías (12%)',
-      description:
-        'Rendimiento legal del 12% anual sobre el saldo consolidado de cesantías, pagadero directamente al trabajador al término del contrato.',
-      formula: '(Cesantías × Días Trabajados en el Año × 12%) ÷ 360',
-      legalArticle: 'Ley 52 de 1975 y Decreto 116 de 1976',
+      title: 'Cesantías e intereses',
+      description: 'Un mes de salario por año, proporcional a los días trabajados con año de 360 días; los intereses son del 12% anual.',
+      formula: 'Cesantías = base × días ÷ 360; intereses = cesantías × días × 12% ÷ 360',
+      legalArticle: 'CST art. 249; Ley 52 de 1975',
     },
     {
       step: 3,
-      title: 'Prima de Servicios Proporcional',
-      description:
-        'Prestación social de un mes de salario por año pagadero en dos partes; en la liquidación se reconoce la fracción del semestre en curso.',
-      formula: '(Salario Base + Auxilio de Transporte) × Días del Semestre ÷ 360',
-      legalArticle: 'Art. 306 del CST',
+      title: 'Prima de servicios',
+      description: 'Quince días de salario por semestre, proporcionales a los días trabajados en el semestre.',
+      formula: 'Prima = base × días del semestre ÷ 360',
+      legalArticle: 'CST art. 306',
     },
     {
       step: 4,
-      title: 'Vacaciones Proporcionales',
-      description:
-        'Descanso remunerado de 15 días hábiles por año de servicios. Para su cálculo no se incluye el auxilio de transporte.',
-      formula: '(Salario Básico Mensual × Días Trabajados) ÷ 720',
-      legalArticle: 'Art. 186 y 189 del CST',
+      title: 'Vacaciones',
+      description: 'Quince días hábiles por año trabajado, con el salario básico y sin auxilio de transporte, menos los días ya disfrutados.',
+      formula: 'Vacaciones = salario × días trabajados ÷ 720 − días disfrutados',
+      legalArticle: 'CST arts. 186 y 189',
     },
     {
       step: 5,
-      title: 'Indemnización por Despido Sin Justa Causa',
+      title: 'Indemnización si hay despido sin justa causa',
       description:
-        'Compensación pecuniaria obligatoria cuando la empresa termina el contrato de manera unilateral sin existir una justa causa comprobada.',
-      formula: 'Término Indefinido: 30 días (año 1) + 20 días por año adicional',
-      legalArticle: 'Art. 64 del CST (reformado por Ley 789 de 2002)',
+        'Indefinido: 30 días el primer año y 20 por cada año adicional (20 + 15 si gana 10 SMMLV o más). Término fijo: salarios del tiempo faltante. Obra o labor: tiempo faltante, mínimo 15 días.',
+      formula: 'Indemnización = días × salario diario',
+      legalArticle: 'CST art. 64',
     },
   ],
-  article: `
-## ¿Qué es la Liquidación Laboral en Colombia?
+  article: `## Qué es la liquidación laboral
 
-La liquidación laboral en Colombia es el balance económico final mediante el cual el empleador salda todas las obligaciones salariales, prestacionales e indemnizatorias derivadas del contrato de trabajo al momento de su extinción, bajo las disposiciones del Código Sustantivo del Trabajo (CST).
+Cuando termina un contrato de trabajo, por la razón que sea, el empleador debe pagar al trabajador todas las prestaciones sociales causadas y no pagadas. Ese pago se conoce como liquidación del contrato o liquidación de prestaciones sociales. Incluye el salario de los últimos días trabajados, las cesantías y sus intereses, la prima de servicios proporcional y las vacaciones que no alcanzó a disfrutar. Si la terminación fue por decisión del empleador sin una justa causa, se suma la indemnización del artículo 64 del Código Sustantivo del Trabajo.
 
-Para el año 2026, con el Salario Mínimo Mensual Legal Vigente (SMMLV) fijado en $1.423.500 y el auxilio de transporte obligatorio en $200.000 para quienes devengan hasta dos salarios mínimos ($2.847.000 mensuales), conocer con precisión matemática cada concepto evita controversias laborales y garantiza que el trabajador perciba el total de sus acreencias de ley.
+La liquidación se debe pagar al momento de terminar el contrato. Si el empleador no paga los salarios y prestaciones debidos, el artículo 65 del CST establece una indemnización moratoria de un día de salario por cada día de retardo durante los primeros 24 meses, salvo que demuestre buena fe.
 
----
+## El año de 360 días
 
-## Componentes Esenciales de la Liquidación Laboral
+Para las prestaciones sociales en Colombia se usa el año comercial de 360 días: todos los meses cuentan como 30 días, incluso febrero. Por eso, si usted trabajó del 1 de enero al 31 de diciembre, la calculadora cuenta 360 días, y si trabajó del 1 de julio al 15 de septiembre cuenta 75 días. Esta convención es la que aplican los empleadores y la que verá en su comprobante de liquidación.
 
-El cálculo de la liquidación en el régimen laboral colombiano se estructura sobre la base del año comercial (meses de 30 días y año de 360 días), integrando cuatro prestaciones fundamentales:
+## Cuándo se incluye el auxilio de transporte
 
-### 1. Cesantías (Artículo 249 del CST)
-Las cesantías corresponden a un mes de salario por cada año completo de servicios prestados, o proporcionalmente por cualquier fracción de tiempo laborada. Su objetivo legal es constituir un auxilio económico para el trabajador cuando quede desempleado.
-- **Fórmula**: \`(Salario Base + Auxilio de Transporte) × Días Laborados en el Año ÷ 360\`
-- En caso de terminación del contrato, las cesantías generadas en el año en curso no se consignan en el fondo de cesantías, sino que se pagan directamente al trabajador en el acta de liquidación.
+El auxilio de transporte no es salario, pero la Ley 1 de 1963 ordena incluirlo en la base de cesantías y prima para quienes ganan hasta dos salarios mínimos. En 2026 el salario mínimo es de $1.750.905 y el auxilio de $249.095, de modo que el tope es $3.501.810. Si su salario es mayor, el auxilio no se paga ni entra en la base. Las vacaciones nunca incluyen el auxilio, porque durante el descanso el trabajador no se desplaza a su sitio de trabajo.
 
-### 2. Intereses sobre Cesantías (Ley 52 de 1975)
-El empleador debe reconocer un interés del 12% anual sobre el valor acumulado de las cesantías causadas durante el año.
-- **Fórmula**: \`(Monto de Cesantías × Días Trabajados en el Año × 0.12) ÷ 360\`
-- Este concepto se cancela íntegramente al trabajador al momento de la liquidación final.
+## Cesantías e intereses
 
-### 3. Prima de Servicios (Artículo 306 del CST)
-La prima de servicios equivale a 30 días de salario por año laborado, dividida comúnmente en dos pagos semestrales (junio y diciembre). Al extinguirse el vínculo laboral, se liquida la porción correspondiente a los días laborados durante el semestre en que ocurre el retiro.
-- **Fórmula**: \`(Salario Base + Auxilio de Transporte) × Días Trabajados en el Semestre ÷ 360\`
+Las cesantías equivalen a un mes de salario por cada año trabajado y proporcionalmente por fracciones. Normalmente el empleador las consigna cada año en el fondo de cesantías antes del 14 de febrero, por lo que en la liquidación final solo se pagan las del año en curso. Si el empleador no consignó las del año anterior, debe pagarlas también; en la calculadora puede indicarlo con una casilla. Los intereses sobre cesantías son del 12% anual y se pagan directamente al trabajador.
 
-### 4. Vacaciones Compensadas en Dinero (Artículo 186 y 189 del CST)
-El trabajador tiene derecho a 15 días hábiles de descanso remunerado por cada año de servicios continuos. Si el contrato finaliza sin haber disfrutado las vacaciones causadas o si existen fracciones pendientes, estas se compensan en dinero.
-- **Regla crucial**: a diferencia de las cesantías y la prima, **el auxilio de transporte no hace parte de la base para liquidar vacaciones**, ya que estas constituyen descanso remunerado y no prestación social sujeta a desplazamiento físico.
-- **Fórmula**: \`(Salario Básico Mensual × Días Laborados) ÷ 720\`
+## Prima de servicios
 
----
+La prima equivale a 30 días de salario por año, pagados en dos cuotas: la primera a más tardar el 30 de junio y la segunda a más tardar el 20 de diciembre. En la liquidación se paga la parte proporcional del semestre en curso. Si no le pagaron la prima del semestre anterior, marque la casilla correspondiente para sumarla.
 
-## Incidencia del Auxilio de Transporte en la Liquidación
+## Vacaciones
 
-De acuerdo con el Artículo 7º de la Ley 1ª de 1963, el auxilio de transporte se incorpora por mandato legal a la base de cálculo de las prestaciones sociales (cesantías y prima de servicios) para todos los trabajadores que perciban hasta dos (2) SMMLV.
+Por cada año trabajado usted tiene derecho a 15 días hábiles de vacaciones remuneradas. Si el contrato termina sin que las haya disfrutado, el empleador debe compensarlas en dinero, incluso por fracciones de año. La fórmula práctica es salario básico por días trabajados entre 720, a lo que se le restan los días que ya disfrutó. Para salarios variables se usa el promedio del último año.
 
-En consecuencia, para quienes devenguen en 2026 hasta $2.847.000, la base prestacional de cesantías y prima es igual al salario pactado más $200.000 del auxilio de transporte. Por el contrario, los trabajadores con sueldos superiores a dos salarios mínimos calculan sus prestaciones con base exclusivamente en su salario básico ordinario.
+## Indemnización por despido sin justa causa
 
----
+Si el empleador termina el contrato sin una de las justas causas del artículo 62 del CST, debe indemnizar al trabajador. En un contrato a término indefinido, con salario inferior a 10 SMMLV, la indemnización es de 30 días de salario por el primer año y 20 días adicionales por cada año siguiente, proporcional por fracción. Con salario de 10 SMMLV o más ($17.509.050 en 2026), es de 20 días por el primer año y 15 por cada año adicional. En un contrato a término fijo, la indemnización equivale a los salarios del tiempo que faltaba para terminar el contrato. En un contrato por obra o labor, al tiempo que faltaba para terminar la obra, sin que sea inferior a 15 días.
 
-## Indemnización por Despido Sin Justa Causa (Artículo 64 del CST)
+## Descuentos de la liquidación
 
-Cuando la empresa decide rescindir el contrato de manera unilateral y sin una causa legal válida consignada en el Artículo 62 del CST, debe pagar una indemnización tasada según el tipo de vinculación:
+Las prestaciones sociales no tienen descuentos de seguridad social. El salario pendiente sí tiene los aportes del 4% a salud y 4% a pensión. La indemnización puede estar sujeta a retención en la fuente si supera ciertos montos; esta calculadora no la estima porque depende de su situación tributaria.
 
-### Contrato a Término Indefinido (para trabajadores que ganan menos de 10 SMMLV)
-- **Por el primer año de servicio o fracción menor**: 30 días de salario.
-- **Por cada año subsiguiente o fracción proporcional**: 20 días adicionales de salario.
+## Cómo usar la calculadora
 
-*(Para sueldos iguales o superiores a 10 SMMLV, la escala indemnizatoria es de 20 días por el primer año y 15 días por cada año siguiente).*
+Ingrese su salario básico, el promedio de pagos variables si los tiene, las fechas de ingreso y retiro, el tipo de contrato y el motivo de terminación. Indique cuántos días de vacaciones ha disfrutado durante todo el contrato y si ya le consignaron las cesantías del año anterior y le pagaron la prima del semestre pasado. Obtendrá cada concepto con su fórmula y su artículo legal.
 
-### Contrato a Término Fijo
-La indemnización equivale al valor total de los salarios correspondientes al tiempo que faltare para vencer el plazo estipulado en el contrato, sin que en ningún caso la indemnización sea inferior a quince (15) días de salario.
+## Resumen rápido
 
----
-
-## Plazo de Pago y la Sanción Moratoria del Artículo 65 del CST ("Brazo Caído")
-
-El Código Sustantivo del Trabajo no otorga un periodo de gracia prolongado: la liquidación debe pagarse **el mismo día de la terminación del contrato**. Si por razones operativas de nómina no fuere posible, la jurisprudencia laboral de la Corte Suprema de Justicia admite que se efectúe en la fecha más próxima de pago de la empresa.
-
-Sin embargo, si el empleador retiene injustificadamente el pago de los salarios y prestaciones sociales debidas, incurre en la severa sanción del **Artículo 65 del CST (indemnización moratoria)**: el patrón debe pagar al trabajador una suma igual al último salario diario por cada día de retraso hasta por 24 meses, transcurridos los cuales se generan intereses moratorios a la tasa máxima legal certificada por la Superintendencia Financiera.
-`,
+Toda liquidación incluye salario pendiente, cesantías, intereses, prima y vacaciones. El despido sin justa causa agrega la indemnización. El auxilio de transporte solo entra en cesantías y prima, y únicamente para salarios de hasta dos mínimos. Revise cada concepto antes de firmar el paz y salvo.`,
   examples: [
     {
-      title: 'Exemplo 1: Despido Sin Justa Causa con Salario Mínimo y Auxilio de Transporte',
+      title: 'Ejemplo 1: renuncia con 2,5 años',
       scenario:
-        'Trabajador despedido sin justa causa el 30 de junio de 2026 con 1 año y 6 meses de servicio continuo (180 días trabajados en 2026), salario básico de $1,500,000 más auxilio de transporte de $200,000 (Base: $1,700,000).',
-      inputs: {
-        'Salario Básico': '$1.500.000',
-        'Auxilio de Transporte': '$200.000',
-        'Base Prestacional': '$1.700.000',
-        'Antigüedad Total': '1.5 años (540 días)',
-        'Días en Semestre 2026': '180 días',
-        'Motivo': 'Despido sin justa causa',
-      },
+        'Andrés gana $2.000.000, ingresó el 1 de marzo de 2024 y renuncia el 15 de septiembre de 2026. Disfrutó 15 días de vacaciones y le deben 15 días de salario.',
+      inputs: { 'Salario': '$2.000.000', 'Base con auxilio': '$2.249.095', 'Días trabajados': '915', 'Motivo': 'Renuncia' },
       breakdown: [
-        {
-          item: 'Cesantías del periodo (180 días)',
-          amount: '$850.000',
-          note: '($1.700.000 base × 180 días) ÷ 360',
-        },
-        {
-          item: 'Intereses sobre Cesantías (12%)',
-          amount: '$51.000',
-          note: '($850.000 × 180 días × 12%) ÷ 360',
-        },
-        {
-          item: 'Prima de Servicios (primer semestre)',
-          amount: '$850.000',
-          note: '($1.700.000 base × 180 días) ÷ 360',
-        },
-        {
-          item: 'Vacaciones proporcionales (180 días)',
-          amount: '$375.000',
-          note: '($1.500.000 básico × 180 días) ÷ 720',
-        },
-        {
-          item: 'Indemnización Art. 64 CST (40 días de sueldo)',
-          amount: '$2.000.000',
-          note: '30 días (año 1) + 10 días (0.5 año) × $50.000/día',
-        },
+        { item: 'Salario pendiente + auxilio', amount: '$1.124.547' },
+        { item: 'Cesantías 2026 (255 días)', amount: '$1.593.109' },
+        { item: 'Intereses sobre cesantías', amount: '$135.414' },
+        { item: 'Prima (75 días)', amount: '$468.561' },
+        { item: 'Vacaciones (23,13 días)', amount: '$1.541.667' },
+        { item: 'Salud y pensión', amount: '−$80.000' },
       ],
-      total: '$4.126.000 Total Liquidación e Indemnización',
+      total: '$4.783.298',
     },
     {
-      title: 'Exemplo 2: Renuncia Voluntaria a Término Indefinido (Sueldo $3.500.000)',
+      title: 'Ejemplo 2: despido sin justa causa con 5,75 años',
       scenario:
-        'Profesional que presenta renuncia voluntaria al 30 de junio de 2026 (180 días laborados en el semestre) con salario de $3,500,000 (superior a 2 SMMLV, sin auxilio de transporte).',
-      inputs: {
-        'Salario Mensual': '$3.500.000',
-        'Auxilio de Transporte': '$0 (supera 2 SMMLV)',
-        'Fecha de Retiro': '30 de junio de 2026',
-        'Días Semestre': '180 días',
-        'Motivo': 'Renuncia Voluntaria',
-      },
+        'Paula gana $4.500.000 con contrato indefinido desde el 1 de febrero de 2021. La despiden sin justa causa el 31 de octubre de 2026; disfrutó 60 días de vacaciones.',
+      inputs: { 'Salario': '$4.500.000', 'Auxilio': 'No aplica', 'Antigüedad': '5,75 años', 'Contrato': 'Indefinido' },
       breakdown: [
-        {
-          item: 'Cesantías del periodo (180 días)',
-          amount: '$1.750.000',
-          note: '($3.500.000 × 180 días) ÷ 360',
-        },
-        {
-          item: 'Intereses sobre Cesantías (12% anual)',
-          amount: '$105.000',
-          note: '($1.750.000 × 180 días × 12%) ÷ 360',
-        },
-        {
-          item: 'Prima de Servicios (primer semestre)',
-          amount: '$1.750.000',
-          note: '($3.500.000 × 180 días) ÷ 360',
-        },
-        {
-          item: 'Vacaciones proporcionales (180 días)',
-          amount: '$875.000',
-          note: '($3.500.000 × 180 días) ÷ 720',
-        },
+        { item: 'Cesantías 2026', amount: '$3.750.000' },
+        { item: 'Intereses', amount: '$375.000' },
+        { item: 'Prima del semestre', amount: '$1.500.000' },
+        { item: 'Vacaciones (26,25 días)', amount: '$3.937.500' },
+        { item: 'Indemnización (125 días)', amount: '$18.750.000' },
       ],
-      total: '$4.480.000 Total Liquidación de Prestaciones',
+      total: '$28.312.500',
     },
   ],
   faqs: [
-    {
-      q: '¿Qué conceptos integran la liquidación laboral en Colombia?',
-      a: 'La liquidación comprende salarios pendientes, cesantías acumuladas, intereses sobre cesantías del 12%, prima de servicios semestral, vacaciones no disfrutadas y, en caso de despido sin justa causa, la respectiva indemnización legal del Artículo 64 del CST.',
-    },
-    {
-      q: '¿El auxilio de transporte se suma para liquidar vacaciones?',
-      a: 'No. El auxilio de transporte se incluye únicamente para calcular cesantías y prima de servicios. Para las vacaciones, la base de cálculo corresponde estrictamente al salario básico devengado por el trabajador, según el Artículo 192 del CST.',
-    },
-    {
-      q: '¿Por qué se usa el divisor 360 para cesantías y 720 para vacaciones?',
-      a: 'En la legislación laboral colombiana se aplica el año comercial de 360 días. Para cesantías y prima (un mes por año) se divide entre 360. Para vacaciones (15 días por año, es decir medio mes), se divide el salario mensual entre 720 (360 × 2).',
-    },
-    {
-      q: '¿Cómo se calcula la indemnización por despido injustificado a término indefinido?',
-      a: 'Para trabajadores que ganan menos de 10 SMMLV, la indemnización es de 30 días de salario por el primer año trabajado y 20 días adicionales por cada año siguiente o fracción proporcional, conforme a la reforma de la Ley 789 de 2002.',
-    },
-    {
-      q: '¿Cómo se calcula la indemnización en un contrato a término fijo?',
-      a: 'En contratos a término fijo, la indemnización equivale al valor total de los salarios correspondientes al tiempo que falte para la fecha de expiración del plazo pactado, con un piso legal mínimo de 15 días de salario.',
-    },
-    {
-      q: '¿Qué sanción legal enfrenta la empresa si retiene o atrasa el pago de la liquidación?',
-      a: 'Aplica el Artículo 65 del CST ("brazo caído"), que impone una sanción equivalente a un día de salario por cada día de mora hasta por 24 meses, tras los cuales se causan intereses moratorios a la tasa máxima bancaria.',
-    },
-    {
-      q: '¿Las prestaciones sociales en la liquidación sufren descuentos de salud y pensión?',
-      a: 'No. Las cesantías, los intereses de cesantías y la prima de servicios están exoneradas de descuentos para el sistema de seguridad social (salud 4% y pensión 4%). Únicamente se descuenta seguridad social sobre los días trabajados de salario y sobre las vacaciones.',
-    },
-    {
-      q: '¿A quién le corresponden los intereses del 12% sobre cesantías?',
-      a: 'Corresponden en su totalidad al trabajador. En el curso regular del contrato se pagan anualmente a más tardar el 31 de enero de cada año; en la liquidación de retiro se pagan proporcionalmente junto con el valor de las cesantías.',
-    },
-    {
-      q: '¿Qué ocurre con las cesantías de años anteriores consignadas en el fondo privado?',
-      a: 'Las cesantías causadas en años anteriores ya fueron consignadas por el empleador en tu fondo de cesantías (Porvenir, Protección, Colfondos, etc.). Tras la terminación laboral, la empresa te entrega una carta de retiro para que retires el saldo total directamente del fondo.',
-    },
-    {
-      q: '¿Qué plazo exacto tiene el empleador para entregar la liquidación?',
-      a: 'El CST establece que el pago de salarios y prestaciones debe realizarse a la terminación del contrato. Por operatividad de nómina, la jurisprudencia acepta que se efectúe en la fecha habitual más inmediata de pago de la empresa.',
-    },
+    { q: '¿Qué incluye la liquidación laboral?', a: 'Salario pendiente, cesantías, intereses sobre cesantías, prima de servicios y vacaciones no disfrutadas. Si hay despido sin justa causa, también la indemnización del artículo 64 del CST.' },
+    { q: '¿Cuándo deben pagarme la liquidación?', a: 'Al terminar el contrato. Si el empleador no paga, puede deberle un día de salario por cada día de retardo (art. 65 CST).' },
+    { q: '¿El auxilio de transporte se incluye en la liquidación?', a: 'Sí en cesantías y prima, si su salario es de hasta 2 SMMLV. Nunca en vacaciones.' },
+    { q: '¿Por qué se usa un año de 360 días?', a: 'Porque las prestaciones se liquidan con el año comercial, en el que cada mes tiene 30 días.' },
+    { q: '¿Si renuncio me pagan indemnización?', a: 'No. La indemnización solo procede cuando el empleador termina el contrato sin justa causa.' },
+    { q: '¿Cuánto es la indemnización por despido sin justa causa?', a: 'En contrato indefinido con salario menor a 10 SMMLV: 30 días por el primer año y 20 por cada año adicional, proporcional por fracción.' },
+    { q: '¿Me descuentan salud y pensión de la liquidación?', a: 'Solo del salario pendiente. Las cesantías, intereses, prima y vacaciones compensadas no tienen aportes del trabajador.' },
+    { q: '¿Qué pasa si no me consignaron las cesantías del año pasado?', a: 'El empleador debe pagarlas en la liquidación y puede deber una sanción de un día de salario por cada día de retardo en la consignación.' },
+    { q: '¿Las vacaciones se pagan con el salario variable?', a: 'Sí. Si su salario es variable, se liquidan con el promedio de lo devengado en el último año (art. 192 CST).' },
   ],
   sources: [
-    {
-      label: 'Código Sustantivo del Trabajo (Secretaría del Senado de la República)',
-      url: 'http://www.secretariasenado.gov.co/senado/basedoc/codigo_sustantivo_trabajo.html',
-    },
-    {
-      label: 'Ministerio del Trabajo de Colombia (Portal Oficial)',
-      url: 'https://www.mintrabajo.gov.co',
-    },
-    {
-      label: 'Ley 52 de 1975 - Régimen de Intereses sobre Cesantías',
-      url: 'http://www.secretariasenado.gov.co/senado/basedoc/ley_0052_1975.html',
-    },
-    {
-      label: 'Ley 789 de 2002 - Reforma Laboral e Indemnizaciones del Art. 64 CST',
-      url: 'http://www.secretariasenado.gov.co/senado/basedoc/ley_0789_2002.html',
-    },
-    {
-      label: 'Unidad de Gestión Pensional y Parafiscales (UGPP)',
-      url: 'https://www.ugpp.gov.co',
-    },
+    { label: 'Código Sustantivo del Trabajo (Secretaría del Senado)', url: 'http://www.secretariasenado.gov.co/senado/basedoc/codigo_sustantivo_trabajo.html' },
+    { label: 'Ministerio del Trabajo', url: 'https://www.mintrabajo.gov.co' },
+    { label: 'Ley 52 de 1975 (intereses sobre cesantías)', url: 'http://www.secretariasenado.gov.co/senado/basedoc/ley_0052_1975.html' },
+    { label: 'Ley 50 de 1990', url: 'http://www.secretariasenado.gov.co/senado/basedoc/ley_0050_1990.html' },
   ],
   relatedTools: [
-    {
-      title: 'Calculadora de Prima de Servicios',
-      path: '/co/calculadora-prima-servicios',
-      description: 'Calcula el pago de la prima semestral de junio o diciembre con auxilio de transporte.',
-    },
-    {
-      title: 'Calculadora de Cesantías e Intereses',
-      path: '/co/calculadora-cesantias',
-      description: 'Liquida tus cesantías acumuladas y el 12% de intereses para retiro o consignación anual.',
-    },
-    {
-      title: 'Calculadora de Salario Neto Colombia',
-      path: '/co/calculadora-salario-neto',
-      description: 'Calcula tu salario neto mensual tras deducciones de pensión, salud y retención en la fuente.',
-    },
+    { title: 'Liquidación por renuncia', path: '/co/calculadora-liquidacion/renuncia/', description: 'Lo que le corresponde si renuncia.' },
+    { title: 'Liquidación por despido sin justa causa', path: '/co/calculadora-liquidacion/despido-sin-justa-causa/', description: 'Con indemnización del art. 64.' },
+    { title: 'Liquidación de contrato a término fijo', path: '/co/calculadora-liquidacion/contrato-a-termino-fijo/', description: 'Vencimiento o terminación anticipada.' },
+    { title: 'Calculadora de cesantías', path: '/co/calculadora-cesantias/', description: 'Cesantías e intereses del año.' },
   ],
   relatedGuides: [
-    {
-      title: 'Guía Completa de Liquidación Laboral bajo el CST',
-      path: '/co/guia-liquidacion-laboral',
-      description: 'Paso a paso de las fórmulas de prestaciones sociales y derechos de retiro en Colombia.',
-    },
-    {
-      title: 'El Artículo 65 del CST y la Sanción Moratoria por Retardo',
-      path: '/co/guia-art-65-cst',
-      description: 'Conoce cómo reclamar un día de salario por cada día de mora si la empresa no te liquida a tiempo.',
-    },
+    { title: 'Indemnización por despido sin justa causa', path: '/co/guias/indemnizacion-por-despido-sin-justa-causa/', description: 'Cómo se calcula y cuándo procede.' },
+    { title: 'Cesantías: cuándo y cómo retirarlas', path: '/co/guias/cesantias-cuando-y-como-retirarlas/', description: 'Fondos, plazos y retiros.' },
   ],
-  updatedAt: '2026-01-01',
+  updatedAt: '2026-11-14',
 };

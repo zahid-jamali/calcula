@@ -43,16 +43,33 @@ Valores com data de verificação pendente (`verifiedOn: null`) são listados ab
 
 ---
 
-## 🇨🇴 Colombia (es-CO)
+## 🇨🇴 Colombia (es-CO) — `src/rules/co/2026.ts`
 
-| Parámetro / Tabla | Valor / Referencia | Órgano Oficial | Fuente | Verificado el |
-|---|---|---|---|---|
-| SMMLV 2026 (Salario Mínimo Mensual) | $1.423.500 | Ministerio del Trabajo / Presidencia de la República | [mintrabajo.gov.co](https://www.mintrabajo.gov.co) | 2026-01-01 |
-| Auxilio de Transporte 2026 | $200.000 | Presidencia de la República / Decreto | [mintrabajo.gov.co](https://www.mintrabajo.gov.co) | 2026-01-01 |
-| Cesantías | 1 mes de salario por año (8.33%) | Código Sustantivo del Trabajo (CST art. 249) | [Secretaría del Senado CST](http://www.secretariasenado.gov.co) | 2026-01-01 |
-| Intereses sobre Cesantías | 12% anual sobre el saldo acumulado | Ley 52 de 1975 / CST | [Secretaría del Senado](http://www.secretariasenado.gov.co) | 2026-01-01 |
-| Prima de Servicios | 1 mes de salario por año (dividido en 2 cuotas) | CST art. 306 | [Secretaría del Senado](http://www.secretariasenado.gov.co) | 2026-01-01 |
-| Vacaciones | 15 días hábiles remunerados por año laborado | CST art. 186 | [Secretaría del Senado](http://www.secretariasenado.gov.co) | 2026-01-01 |
+| Parámetro | Valor | Fuente | Verificado |
+|---|---|---|---|
+| SMMLV 2026 | $1.750.905 | Decreto 1469 de 2025; transitorio 0159 de 2026 | 2026-11-14 (fuentes secundarias) — ver nota |
+| Auxilio de transporte 2026 | $249.095 (salarios ≤ 2 SMMLV) | Decreto 1470 de 2025 | 2026-11-14 |
+| UVT 2026 | $52.374 | Resolución DIAN 000238 de 2025 | 2026-11-14 |
+| Jornada máxima (Ley 2101 de 2021) | 47 h (15-jul-2023), 46 h (2024), 44 h (2025), 42 h (15-jul-2026) | Ley 2101 de 2021 | 2026-11-14 |
+| Recargo dominical y festivo | 75% → 80% (1-jul-2025) → 90% (1-jul-2026) → 100% (1-jul-2027) | Ley 2466 de 2025, art. 14 | 2026-11-14 (fuentes secundarias) |
+| Horas extra / recargo nocturno | 25% diurna, 75% nocturna, 35% nocturno | CST arts. 168 y 179 | 2026-01-01 |
+| Cesantías, intereses, prima, vacaciones, art. 64 | 30 días/año, 12%, 30 días/año, 15 días hábiles, tablas 30+20 / 20+15, fijo = tiempo faltante, obra mín. 15 días | CST | 2026-01-01 |
+
+> **Nota SMMLV 2026:** el Consejo de Estado suspendió provisionalmente el Decreto 1469 de 2025; el Decreto 0159 del 19-feb-2026 fijó transitoriamente el mismo valor hasta la sentencia de fondo. Hay reportes contradictorios sobre una posterior revocatoria de la suspensión. Revisar el estado del proceso (rad. 11001-03-25-000-2026-00004-00) y actualizar si la sentencia cambia el valor.
+
+### ⚠️ Pendientes de verificar (`verifiedOn: null`)
+- **Inicio del trabajo nocturno a las 7 p. m. desde el 25-dic-2025** (Ley 2466): la mayoría de fuentes da esa fecha; algunas citan 26-dic-2025 o 1-jul-2026. Confirmar en el texto oficial / concepto de Mintrabajo.
+- **Calendario de la reforma** (`reformaTimeline`), incluida la duración máxima de 4 años del contrato a término fijo y el régimen de aprendices mencionados en el contenido.
+- **Aportes del trabajador**: salud 4%, pensión 4%, IBC mín. 1 / máx. 25 SMMLV, salario integral 13 SMMLV con IBC 70% (reforma pensional Ley 2381 de 2024 en transición).
+- **Fondo de Solidaridad Pensional**: 1% desde 4 SMMLV; 1,2/1,4/1,6/1,8/2% desde 16/17/18/19/20 SMMLV.
+- **Retención en la fuente, procedimiento 1** (art. 383 ET en UVT: 95/150/360/640/945/2300; 19/28/33/35/37/39%), renta exenta 25% con tope 790 UVT/año, límite global 40% y 1.340 UVT/año, dependientes 10% hasta 32 UVT/mes, redondeo al millar.
+- **Historial SMMLV y auxilio 2017-2025** y los números de decreto de 2017-2021 (indicados como "Decreto anual").
+- Afirmaciones del contenido: retención del 20% sobre indemnizaciones con ingreso > 204 UVT (art. 401-3 ET); exención de cesantías hasta 350 UVT (art. 206 ET).
+
+### Supuestos del cálculo
+- Liquidación: el salario pendiente se toma por defecto como los días del último mes (máx. 30); salud y pensión (8%) se descuentan solo del salario pendiente; no se estima retención sobre la indemnización.
+- Vacaciones: salario básico (sin auxilio); la calculadora de vacaciones permite sumar el promedio de variables (CST art. 192).
+- Horas extras: los recargos (nocturno, dominical) se pagan solo como porcentaje adicional; las horas extra pagan la hora completa + recargo. Horas mensuales = jornada semanal × 5.
 
 ---
 
@@ -69,4 +86,4 @@ Valores com data de verificação pendente (`verifiedOn: null`) são listados ab
 ---
 
 ## Valores pendentes de confirmação oficial (`verifiedOn: null`)
-*Nenhum valor pendente. Todas as tabelas legais de 2026 estão baseadas em normas vigentes devidamente referenciadas.*
+Ver as listas "Pendientes de verificar" nas seções de México e Colombia acima.

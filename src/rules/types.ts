@@ -124,19 +124,7 @@ export interface MexicoRules2026 {
   ptuDeadlines: RuleValue<{ companies: { month: number; day: number }; individuals: { month: number; day: number } }>;
 }
 
-/** Legacy shape still used by the current /co/ liquidación page. */
 export interface ColombiaRules2026 {
-  year: number;
-  smmlv: RuleValue<number>;
-  auxilioTransporte: RuleValue<number>;
-  cesantiasRate: RuleValue<number>;
-  interesesCesantiasRate: RuleValue<number>;
-  primaServiciosDaysPerYear: RuleValue<number>;
-  vacacionesDaysPerYear: RuleValue<number>;
-}
-
-/** Target shape for the full Colombia section (not wired yet). */
-export interface ColombiaRules2026Next {
   year: number;
   smmlv: RuleValue<number>;
   auxilioTransporte: RuleValue<number>;
