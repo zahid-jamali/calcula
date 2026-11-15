@@ -296,7 +296,7 @@ Conforme determina o Artigo 477, § 5º da CLT, qualquer compensação ou descon
     },
     {
       title: 'Calculadora de 13º Salário',
-      path: '/br/calculadora-decimo-terceiro',
+      path: '/br/calculadora-13-salario/',
       description: 'Calcule as duas parcelas do décimo terceiro com deduções de INSS e IRRF.',
     },
     {
@@ -308,12 +308,12 @@ Conforme determina o Artigo 477, § 5º da CLT, qualquer compensação ou descon
   relatedGuides: [
     {
       title: 'Guia Completo da Demissão sem Justa Causa',
-      path: '/br/guia-demissao-sem-justa-causa',
+      path: '/br/guias/direitos-na-demissao-sem-justa-causa/',
       description: 'Passo a passo com todos os direitos, prazos e saques permitidos na demissão imotivada.',
     },
     {
       title: 'Prazos do Artigo 477 da CLT e Multas por Atraso',
-      path: '/br/guia-art-477-clt',
+      path: '/br/guias/como-calcular-rescisao-passo-a-passo/',
       description: 'Entenda como funciona a penalidade de um salário caso a empresa atrase o pagamento em 10 dias.',
     },
   ],

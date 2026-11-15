@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { parseLocalizedNumber, formatCurrency } from './format';
+import { parseLocalizedNumber, formatCurrency, formatNumber } from './format';
 
 describe('format & parse utilities', () => {
   it('parses various localized number representations', () => {
@@ -29,5 +29,11 @@ describe('format & parse utilities', () => {
     // Chile (no decimals)
     const cl = formatCurrency(500000, 'cl');
     expect(cl).toContain('500.000');
+  });
+
+  it('formats numbers flexibly with either argument order', () => {
+    expect(formatNumber(41329.8, 2, 'cl')).toContain('41.329,80');
+    expect(formatNumber(41329.8, 'cl', 2)).toContain('41.329,80');
+    expect(formatNumber(72440, 0, 'cl')).toContain('72.440');
   });
 });

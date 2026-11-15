@@ -98,13 +98,27 @@ export function formatCurrency(amount: number, country: CountryCode): string {
 }
 
 /**
- * Formats a plain number with thousand separators
+ * Formats a plain number with thousand separators.
+ * Supports both (value, country, decimals) and (value, decimals, country).
  */
 export function formatNumber(
   value: number,
-  country: CountryCode,
-  decimals: number = 0
+  arg2?: CountryCode | number,
+  arg3?: CountryCode | number
 ): string {
+  let country: CountryCode = 'cl';
+  let decimals = 0;
+
+  if (typeof arg2 === 'string') {
+    country = arg2;
+    decimals = typeof arg3 === 'number' ? arg3 : 0;
+  } else if (typeof arg2 === 'number') {
+    decimals = arg2;
+    country = typeof arg3 === 'string' ? arg3 : 'cl';
+  } else if (typeof arg3 === 'string') {
+    country = arg3;
+  }
+
   const safeVal = isNaN(value) ? 0 : value;
   const localeMap: Record<CountryCode, string> = {
     br: 'pt-BR',
@@ -113,7 +127,7 @@ export function formatNumber(
     cl: 'es-CL',
   };
 
-  return new Intl.NumberFormat(localeMap[country] || 'es', {
+  return new Intl.NumberFormat(localeMap[country] || 'es-CL', {
     minimumFractionDigits: decimals,
     maximumFractionDigits: decimals,
   }).format(safeVal);

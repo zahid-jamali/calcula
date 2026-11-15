@@ -28,3 +28,12 @@ export function getRules<C extends CountryCode>(
       throw new Error(`Unsupported country code: ${country}`);
   }
 }
+
+/**
+ * Returns the current year in force for the legal rule set of a given country.
+ * When a 2027 rule file is activated, this automatically reflects 2027 across titles and H1s.
+ */
+export function getInForceYear(country: CountryCode): number {
+  const rules = getRules(country);
+  return rules.year || 2026;
+}

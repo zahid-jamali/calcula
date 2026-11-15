@@ -7,11 +7,21 @@ import { FaqAccordion } from '@/components/ui';
 import { COUNTRIES } from '@/config/site';
 import { BR_GUIDES_LIST } from '@/content/br/guias';
 
-export const metadata = {
-  title: 'Calculadoras Trabalhistas e Financeiras Grátis 2026 | Calcula',
-  description:
-    'Simule de graça rescisão CLT, salário líquido, 13º salário, férias, FGTS, horas extras e seguro-desemprego com as regras e tabelas oficiais de 2026.',
-};
+import { buildMetadata } from '@/lib/seo';
+import type { Metadata } from 'next';
+
+const TITLE = 'Calculadoras Trabalhistas e Financeiras Grátis 2026 | Calcula';
+const DESCRIPTION =
+  'Simule de graça rescisão CLT, salário líquido, 13º salário, férias, FGTS, horas extras e seguro-desemprego com as regras e tabelas oficiais de 2026.';
+
+export function generateMetadata(): Metadata {
+  return buildMetadata({
+    country: 'br',
+    slug: 'br',
+    title: TITLE,
+    description: DESCRIPTION,
+  });
+}
 
 const BRAZIL_FAQS = [
   {
@@ -49,8 +59,8 @@ export default function BrazilHomePage() {
         country="br"
         slug="br"
         type="website"
-        title={metadata.title}
-        description={metadata.description}
+        title={TITLE}
+        description={DESCRIPTION}
         faqs={BRAZIL_FAQS}
         breadcrumbs={[
           { name: 'Calcula', path: '/' },

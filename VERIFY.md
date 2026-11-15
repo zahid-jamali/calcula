@@ -73,15 +73,25 @@ Valores com data de verificação pendente (`verifiedOn: null`) são listados ab
 
 ---
 
-## 🇨🇱 Chile (es-CL)
+## 🇨🇱 Chile (es-CL) — `src/rules/cl/2026.ts`
 
 | Parámetro / Tabla | Valor / Referencia | Órgano Oficial | Fuente | Verificado el |
 |---|---|---|---|---|
-| Ingreso Mínimo Mensual (IMM) 2026 | $500.000 | Ministerio de Hacienda / Ley 21.578 | [bcn.cl / LeyChile](https://www.bcn.cl/leychile) | 2026-01-01 |
-| Feriado Anual (Vacaciones) | 15 días hábiles por año | Código del Trabajo art. 67 | [Dirección del Trabajo](https://www.dt.gob.cl) | 2026-01-01 |
+| Ingreso Mínimo Mensual (IMM) 2026 | $500.000 CLP | Ministerio del Trabajo / Ley 21.578 | [bcn.cl / LeyChile](https://www.bcn.cl/leychile/navegar?idNorma=1191549) | 2026-01-01 |
+| Historial Sueldo Mínimo (2016-2026) | Serie oficial 10 años | BCN / Leyes periódicas de reajuste | [bcn.cl LeyChile](https://www.bcn.cl/leychile) | 2026-01-01 |
+| Tope Imponible AFP y Salud 2026 | 85,6 UF | Superintendencia de Pensiones | [spensiones.cl](https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-10359.html) | 2026-01-01 |
+| Tope Imponible Seguro de Cesantía 2026 | 128,4 UF | Superintendencia de Pensiones | [spensiones.cl](https://www.spensiones.cl/portal/institucional/594/w3-propertyvalue-10359.html) | 2026-01-01 |
+| Cotización Obligatoria Fondo Pensión | 10% de la remuneración imponible | DL 3.500 art. 17 | [spensiones.cl](https://www.spensiones.cl) | 2026-01-01 |
+| Comisiones AFP (7 administradoras) | Capital 1,44%, Cuprum 1,44%, Habitat 1,27%, Modelo 0,58%, PlanVital 1,16%, Provida 1,45%, Uno 0,49% | Superintendencia de Pensiones | [spensiones.cl](https://www.spensiones.cl) | 2026-01-01 |
+| Cotización Obligatoria Salud (Fonasa) | 7% legal | DFL 1/2005 Ministerio de Salud | [fonasa.cl](https://www.fonasa.cl) | 2026-01-01 |
+| Seguro de Cesantía (AFC) trabajador | 0,6% contrato indefinido / 0% plazo fijo | Ley 19.728 art. 5 | [afc.cl](https://www.afc.cl) | 2026-01-01 |
+| Tabla Impuesto Único de Segunda Categoría | Tramos en UTM: exento ≤13,5; 4%, 8%, 13,5%, 23%, 30,4%, 35%, 40% | Servicio de Impuestos Internos (SII) | [sii.cl](https://www.sii.cl) | 2026-01-01 |
+| Gratificación Legal Art. 50 | 25% con tope de 4,75 IMM al año ($197.917/mes) | Código del Trabajo art. 50 | [Dirección del Trabajo](https://www.dt.gob.cl) | 2026-01-01 |
 | Indemnización por Años de Servicio | 1 mes por año de servicio (tope 11 años) | Código del Trabajo art. 163 | [Dirección del Trabajo](https://www.dt.gob.cl) | 2026-01-01 |
-| Indemnización Sustitutiva del Aviso Previo | 1 mes de remuneración | Código del Trabajo art. 161/162 | [Dirección del Trabajo](https://www.dt.gob.cl) | 2026-01-01 |
-| Tope Imponible AFP | 84,3 UF | Superintendencia de Pensiones | [spensiones.cl](https://www.spensiones.cl) | 2026-01-01 |
+| Indemnización Sustitutiva de Aviso Previo | 1 mes de última remuneración devengada | Código del Trabajo art. 161 inc. 2º | [Dirección del Trabajo](https://www.dt.gob.cl) | 2026-01-01 |
+| Tope de Remuneración Indemnizaciones | 90 UF (aplica a años de servicio y aviso previo) | Código del Trabajo art. 172 | [Dirección del Trabajo](https://www.dt.gob.cl) | 2026-01-01 |
+| Feriado Legal y Proporcional | 1,25 días hábiles por mes (15 hábiles/año), proyectados a corridos (factor ~1,4) | Código del Trabajo arts. 67 y 73 | [Dirección del Trabajo](https://www.dt.gob.cl) | 2026-01-01 |
+| Indicadores Económicos Diarios (UF, UTM, Dólar, Euro, IPC) | Serie diaria y mensual oficial | Banco Central de Chile vía Mindicador.cl | [bcentral.cl](https://www.bcentral.cl) / [mindicador.cl](https://mindicador.cl) | 2026-11-14 |
 
 ---
 

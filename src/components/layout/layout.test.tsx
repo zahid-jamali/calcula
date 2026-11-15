@@ -12,11 +12,11 @@ describe('Header Component', () => {
     expect(html).toContain('alt="Calcula"');
     expect(html).toContain('href="/br"');
 
-    // Country flags
-    expect(html).toContain('🇧🇷');
-    expect(html).toContain('🇲🇽');
-    expect(html).toContain('🇨🇴');
-    expect(html).toContain('🇨🇱');
+    // Country flags (SVG vector badges with aria-labels)
+    expect(html).toContain('aria-label="Bandeira do Brasil"');
+    expect(html).toContain('aria-label="Bandera de México"');
+    expect(html).toContain('aria-label="Bandera de Colombia"');
+    expect(html).toContain('aria-label="Bandera de Chile"');
 
     // Active country indicator
     expect(html).toContain('BR');
@@ -24,11 +24,6 @@ describe('Header Component', () => {
     // Categories
     expect(html).toContain('Trabalhista');
     expect(html).toContain('Financeiro');
-
-    // Zetawala badge
-    expect(html).toContain('https://zetawala.com');
-    expect(html).toContain('por Zetawala');
-    expect(html).toContain('alt="Zetawala"');
   });
 
   it('renders in Spanish for Mexico', () => {
@@ -40,41 +35,31 @@ describe('Header Component', () => {
 });
 
 describe('Footer Component', () => {
-  it('renders parent-brand block with zetawala-logo and Portuguese copy for Brazil', () => {
+  it('renders clean 4-column footer and single Zetawala credit for Brazil', () => {
     const html = renderToString(<Footer country="br" />);
 
-    // Zetawala block
-    expect(html).toContain(
-      'A Calcula faz parte da rede Zetawala de ferramentas gratuitas.'
-    );
-    expect(html).toContain('Conheça a Zetawala →');
-    expect(html).toContain('https://zetawala.com');
-    expect(html).toContain('alt="Zetawala"');
-
-    // 4 columns: tools, guides, info, site pages
+    // 4 columns: tools, guides, info, legal
     expect(html).toContain('Calculadoras');
     expect(html).toContain('Guias e Artigos');
     expect(html).toContain('Institucional');
-    expect(html).toContain('Páginas do Site');
+    expect(html).toContain('Legal');
 
     // Tools
     expect(html).toContain('Calculadora de Rescisão Trabalhista CLT 2026');
 
-    // Copyright
-    expect(html).toContain('© 2026 Zetawala');
+    // Single tasteful Zetawala credit in bottom footer
+    expect(html).toContain('https://zetawala.com');
+    expect(html).toContain('Zetawala');
   });
 
-  it('renders Spanish parent-brand block and copy for Mexico', () => {
+  it('renders Spanish layout and single Zetawala credit for Mexico', () => {
     const html = renderToString(<Footer country="mx" />);
 
-    expect(html).toContain(
-      'Calcula es parte de la red Zetawala de herramientas gratuitas.'
-    );
-    expect(html).toContain('Conoce Zetawala →');
     expect(html).toContain('Calculadoras');
     expect(html).toContain('Guías y Artículos');
-    expect(html).toContain('Páginas del Sitio');
+    expect(html).toContain('Institucional');
+    expect(html).toContain('Legal');
     expect(html).toContain('Calculadora de Finiquito y Liquidación 2026');
-    expect(html).toContain('© 2026 Zetawala');
+    expect(html).toContain('https://zetawala.com');
   });
 });

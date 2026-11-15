@@ -178,7 +178,40 @@ export interface ColombiaRules2026 {
   reformaTimeline: RuleValue<Array<{ date: string; title: string; detail: string; law: string }>>;
 }
 
+export interface ChileAfpRate {
+  name: string;
+  commission: number;
+  totalRate: number;
+}
+
+export interface ChileImpuestoUnicoBracket {
+  fromUtm: number;
+  toUtm: number | null;
+  factor: number;
+  rebajaUtm: number;
+}
+
+export interface ChileSueldoMinimoHistoryItem {
+  year: number;
+  value: number;
+  law: string;
+  effectiveDate: string;
+}
+
 export interface ChileRules2026 {
+  sueldoMinimoHistory: RuleValue<ChileSueldoMinimoHistoryItem[]>;
+  topeImponibleCesantiaUf: RuleValue<number>;
+  afpMandatoryRate: RuleValue<number>;
+  afpCommissions: RuleValue<Record<string, ChileAfpRate>>;
+  fonasaRate: RuleValue<number>;
+  cesantiaEmployeeIndefinidoRate: RuleValue<number>;
+  cesantiaEmployeePlazoFijoRate: RuleValue<number>;
+  impuestoUnicoBrackets: RuleValue<ChileImpuestoUnicoBracket[]>;
+  gratificacionArt50CapMultiple: RuleValue<number>;
+  gratificacionArt50Rate: RuleValue<number>;
+  indemnizacionCapUf: RuleValue<number>;
+  indemnizacionMaxYears: RuleValue<number>;
+  feriadoMonthlyRate: RuleValue<number>;
   year: number;
   ingresoMinimoMensual: RuleValue<number>;
   feriadoAnualDiasHabiles: RuleValue<number>;

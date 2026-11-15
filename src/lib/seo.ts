@@ -205,7 +205,9 @@ export function buildMetadata({
           languages[lang] = `${SITE_CONFIG.baseUrl}/${cleanItemSlug}/`;
         }
       }
-      languages['x-default'] = `${SITE_CONFIG.baseUrl}/`;
+      if (registryItem.isEquivalentTo === 'whatsapp-link') {
+        languages['x-default'] = `${SITE_CONFIG.baseUrl}/br/gerador-de-link-whatsapp/`;
+      }
       alternates.languages = languages;
     }
   }

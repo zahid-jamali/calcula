@@ -18,3 +18,4 @@ export * from './AdSlot';
 export * from './UpdatedBadge';
 export * from './DeadlineBanner';
 export * from './DataTable';
+export * from './CountryFlag';

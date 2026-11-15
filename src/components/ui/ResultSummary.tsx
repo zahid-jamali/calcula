@@ -4,10 +4,10 @@ import { formatCurrency } from '@/lib/format';
 import { Card } from './Card';
 
 export interface CalculationLineItem {
-  key: string;
+  key?: string;
   label: string;
   amount: number;
-  formula: string;
+  formula?: string;
   legalArticle?: string;
   isDeduction?: boolean;
 }
@@ -15,6 +15,7 @@ export interface CalculationLineItem {
 export interface ResultSummaryProps {
   totalAmount: number;
   totalLabel?: string;
+  title?: string;
   totalGross?: number;
   totalDeductions?: number;
   items: CalculationLineItem[];
@@ -68,6 +69,7 @@ const RESULT_LABELS = {
 export function ResultSummary({
   totalAmount,
   totalLabel,
+  title,
   totalGross,
   totalDeductions,
   items,
@@ -81,7 +83,7 @@ export function ResultSummary({
   className = '',
 }: ResultSummaryProps) {
   const t = country === 'br' ? RESULT_LABELS.pt : RESULT_LABELS.es;
-  const effectiveTotalLabel = totalLabel ?? t.totalLabel;
+  const effectiveTotalLabel = totalLabel ?? title ?? t.totalLabel;
   const effectiveBadge = badge ?? t.badge;
   const effectiveDisclaimer = disclaimer ?? t.disclaimer;
 
@@ -211,19 +213,19 @@ export function ResultSummary({
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                {items.map((item) => (
+                {items.map((item, index) => (
                   <tr
-                    key={item.key}
+                    key={item.key || `${item.label}-${index}`}
                     className="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition-colors"
                   >
                     <td className="py-3.5 px-3.5 font-medium text-slate-900 dark:text-slate-100">
                       <div>{item.label}</div>
                       <div className="text-xs text-slate-500 dark:text-slate-400 md:hidden mt-0.5 font-mono">
-                        {item.formula}
+                        {item.formula || '—'}
                       </div>
                     </td>
                     <td className="py-3.5 px-3.5 text-xs text-slate-600 dark:text-slate-300 font-mono hidden md:table-cell">
-                      {item.formula}
+                      {item.formula || '—'}
                     </td>
                     <td className="py-3.5 px-3.5 whitespace-nowrap">
                       {item.legalArticle ? (

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { buildJsonLdData, JsonLd } from './JsonLd';
+import { buildJsonLdData } from './JsonLd';
 import { PageContent } from '@/content/types';
 
 describe('JsonLd structured data', () => {

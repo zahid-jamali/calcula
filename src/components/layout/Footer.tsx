@@ -19,13 +19,6 @@ export function Footer({ country }: FooterProps) {
   const isPt = country === 'br';
   const prefix = country ? `/${country}` : '';
 
-  // Localized parent-brand text and CTA
-  const parentNote = isPt
-    ? 'A Calcula faz parte da rede Zetawala de ferramentas gratuitas.'
-    : 'Calcula es parte de la red Zetawala de herramientas gratuitas.';
-
-  const parentCta = isPt ? 'Conheça a Zetawala →' : 'Conoce Zetawala →';
-
   // 1. Column of tools
   const toolsFromRegistry = PAGE_REGISTRY.filter(
     (p) => (!country || p.country === country) && p.type === 'tool'
@@ -60,176 +53,70 @@ export function Footer({ country }: FooterProps) {
         ]
       : [
           {
-            label: 'Calculadora de Finiquito Laboral 2026',
+            label: 'Calculadora de Finiquito e Indemnización 2026',
             href: '/cl/calculadora-finiquito/',
           },
         ];
 
-  // 2. Column of guides (registry first, so links always point to real pages)
+  // 2. Column of guides
   const guidesFromRegistry = PAGE_REGISTRY.filter(
-    (p) => country && p.country === country && p.type === 'guide'
-  ).slice(0, 6);
+    (p) => (!country || p.country === country) && p.type === 'guide'
+  );
 
-  const guides: FooterLink[] = guidesFromRegistry.length > 0
-    ? guidesFromRegistry.map((g) => ({ label: g.title, href: `/${g.slug}/` }))
-    : isPt
-    ? [
-        {
-          label: 'Guia Completo da Rescisão CLT 2026',
-          href: `${prefix}/guia-rescisao-clt/`,
-        },
-        {
-          label: 'Prazos de Pagamento das Verbas Rescisórias',
-          href: `${prefix}/prazos-pagamento-rescisao/`,
-        },
-        {
-          label: 'Direitos na Demissão Sem Justa Causa',
-          href: `${prefix}/demissao-sem-justa-causa/`,
-        },
-        {
-          label: 'Como Calcular Férias e 13º Salário',
-          href: `${prefix}/calculo-ferias-decimo-terceiro/`,
-        },
-      ]
-    : country === 'mx'
-    ? [
-        {
-          label: 'Guía de Finiquito según la Ley Federal del Trabajo',
-          href: '/mx/guia-finiquito-lft/',
-        },
-        {
-          label: 'Diferencia entre Finiquito y Liquidación',
-          href: '/mx/finiquito-vs-liquidacion/',
-        },
-        {
-          label: 'Plazos de Pago y Derechos Laborales',
-          href: '/mx/plazo-pago-liquidacion/',
-        },
-        {
-          label: 'Vacaciones Dignas y Aguinaldo 2026',
-          href: '/mx/vacaciones-dignas-aguinaldo/',
-        },
-      ]
-    : country === 'co'
-    ? [
-        {
-          label: 'Guía de Prestaciones Sociales según el CST',
-          href: '/co/guia-prestaciones-sociales/',
-        },
-        {
-          label: 'Cómo Calcular Cesantías e Intereses',
-          href: '/co/como-calcular-cesantias/',
-        },
-        {
-          label: 'Indemnización por Despido sin Justa Causa',
-          href: '/co/indemnizacion-despido/',
-        },
-        {
-          label: 'Prima de Servicios y Vacaciones en Colombia',
-          href: '/co/prima-de-servicios/',
-        },
-      ]
-    : country === 'cl'
-    ? [
-        {
-          label: 'Guía de Finiquito según el Código del Trabajo',
-          href: '/cl/guia-finiquito-chile/',
-        },
-        {
-          label: 'Indemnización por Años de Servicio',
-          href: '/cl/anos-de-servicio/',
-        },
-        {
-          label: 'Mes de Aviso Previo y Feriado Legal',
-          href: '/cl/mes-aviso-vacaciones/',
-        },
-        {
-          label: 'Reserva de Derechos en el Finiquito',
-          href: '/cl/reserva-de-derechos/',
-        },
-      ]
-    : [
-        {
-          label: 'Guías Laborales para América Latina',
-          href: '/guias/',
-        },
-        {
-          label: 'Cálculo de Liquidaciones y Finiquitos',
-          href: '/guias/calculo-liquidaciones/',
-        },
-      ];
+  const guides: FooterLink[] =
+    guidesFromRegistry.length > 0
+      ? guidesFromRegistry.map((g) => ({
+          label: g.title,
+          href: `/${g.slug}/`,
+        }))
+      : [];
 
   // 3. Column of info pages
   const infoPages: FooterLink[] = isPt
     ? [
         { label: 'Sobre o Calcula', href: `${prefix}/sobre/` },
         { label: 'Metodologia de Cálculo', href: `${prefix}/metodologia/` },
-        { label: 'Fontes Oficiais e Base Legal', href: `${prefix}/fontes/` },
+        { label: 'Perguntas Frequentes', href: `${prefix}/perguntas-frequentes/` },
         { label: 'Contato e Suporte', href: `${prefix}/contato/` },
       ]
     : [
-        { label: 'Acerca de Calcula', href: `${prefix}/sobre/` },
+        { label: 'Acerca de Calcula', href: `${prefix}/acerca-de/` },
         { label: 'Metodología de Cálculo', href: `${prefix}/metodologia/` },
-        { label: 'Fuentes Oficiales y Normativa', href: `${prefix}/fontes/` },
-        { label: 'Contacto y Soporte', href: `${prefix}/contato/` },
+        { label: 'Preguntas Frecuentes', href: `${prefix}/preguntas-frecuentes/` },
+        { label: 'Contacto y Soporte', href: `${prefix}/contacto/` },
       ];
 
   // 4. Column of site pages
   const sitePages: FooterLink[] = isPt
     ? [
-        { label: 'Termos de Uso', href: `${prefix}/termos/` },
-        { label: 'Política de Privacidade', href: `${prefix}/privacidade/` },
+        { label: 'Termos de Uso', href: `${prefix}/termos-de-uso/` },
+        { label: 'Política de Privacidade', href: `${prefix}/politica-de-privacidade/` },
         { label: 'Aviso Legal', href: `${prefix}/aviso-legal/` },
-        { label: 'Mapa do Site', href: `${prefix}/mapa-site/` },
+        { label: 'Mapa do Site', href: `${prefix}/mapa-do-site/` },
       ]
     : [
-        { label: 'Términos de Uso', href: `${prefix}/termos/` },
-        { label: 'Política de Privacidad', href: `${prefix}/privacidade/` },
+        { label: 'Términos de Uso', href: `${prefix}/terminos-de-uso/` },
+        { label: 'Política de Privacidad', href: `${prefix}/politica-de-privacidad/` },
         { label: 'Aviso Legal', href: `${prefix}/aviso-legal/` },
-        { label: 'Mapa del Sitio', href: `${prefix}/mapa-site/` },
+        { label: 'Mapa del Sitio', href: `${prefix}/mapa-del-sitio/` },
       ];
 
   return (
     <footer className="mt-20 border-t border-slate-200 bg-white">
-      {/* Top Parent-Brand Block (Zetawala) */}
-      <div className="bg-slate-50 border-b border-slate-200 py-5 px-4">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <Image
-              src="/images/zetawala-logo.png"
-              alt="Zetawala"
-              width={26}
-              height={26}
-              className="h-6 w-auto object-contain"
-            />
-            <span className="text-sm font-medium text-slate-700">
-              {parentNote}
-            </span>
-          </div>
-          <a
-            href={SITE_CONFIG.parentBrand.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-900 hover:text-brand-700 transition-colors"
-          >
-            {parentCta}
-          </a>
-        </div>
-      </div>
-
       {/* Main Footer: 4 Columns (tools, guides, info pages, site pages) */}
-      <div className="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="max-w-6xl mx-auto px-4 py-14 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {/* Column 1: Tools */}
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-4">
+          <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-4 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-brand-900"></span>
             {dict.common.footerSections.tools}
           </h3>
           <ul className="space-y-2.5 text-sm text-slate-600">
-            {tools.map((item) => (
+            {tools.slice(0, 8).map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="hover:text-brand-900 transition-colors"
+                  className="hover:text-brand-900 transition-colors line-clamp-1"
                 >
                   {item.label}
                 </Link>
@@ -240,15 +127,16 @@ export function Footer({ country }: FooterProps) {
 
         {/* Column 2: Guides */}
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-4">
+          <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-4 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
             {dict.common.footerSections.guides}
           </h3>
           <ul className="space-y-2.5 text-sm text-slate-600">
-            {guides.map((item) => (
+            {guides.slice(0, 8).map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="hover:text-brand-900 transition-colors"
+                  className="hover:text-brand-900 transition-colors line-clamp-1"
                 >
                   {item.label}
                 </Link>
@@ -257,9 +145,10 @@ export function Footer({ country }: FooterProps) {
           </ul>
         </div>
 
-        {/* Column 3: Info Pages */}
+        {/* Column 3: Methodology & E-E-A-T */}
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-4">
+          <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-4 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-blue-600"></span>
             {dict.common.footerSections.info}
           </h3>
           <ul className="space-y-2.5 text-sm text-slate-600">
@@ -276,10 +165,11 @@ export function Footer({ country }: FooterProps) {
           </ul>
         </div>
 
-        {/* Column 4: Site Pages */}
+        {/* Column 4: Institutional & Legal */}
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-4">
-            {isPt ? 'Páginas do Site' : 'Páginas del Sitio'}
+          <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-4 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+            {dict.common.footerSections.legal}
           </h3>
           <ul className="space-y-2.5 text-sm text-slate-600">
             {sitePages.map((item) => (
@@ -296,14 +186,41 @@ export function Footer({ country }: FooterProps) {
         </div>
       </div>
 
-      {/* Bottom Disclaimer & Copyright */}
-      <div className="border-t border-slate-100 py-6 px-4">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
-          <p className="max-w-xl text-center sm:text-left text-slate-400">
-            {dict.common.labels.disclaimerText}
-          </p>
-          <div className="font-medium whitespace-nowrap text-slate-600">
-            {`© ${SITE_CONFIG.year} ${SITE_CONFIG.parentBrand.name}`}
+      {/* Bottom Legal & Single Zetawala Credit */}
+      <div className="border-t border-slate-100 py-6 px-4 bg-slate-50/70">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <div className="flex items-center gap-3">
+            <div className="w-7 h-7 rounded-lg bg-slate-900 flex items-center justify-center p-1 shrink-0">
+              <Image
+                src="/images/calcula-emblem.png"
+                alt="Calcula"
+                width={28}
+                height={28}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div>
+              <span className="font-bold text-slate-800">Calcula</span>
+              <span className="mx-2 text-slate-300">·</span>
+              <span>
+                {isPt
+                  ? 'Simulações e ferramentas trabalhistas gratuitas da rede Zetawala.'
+                  : 'Simuladores y herramientas laborales gratuitas de la red Zetawala.'}
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2 text-slate-400">
+            <span>© 2026 Calcula · Todos los derechos reservados</span>
+            <span>·</span>
+            <a
+              href={SITE_CONFIG.parentBrand.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-500 hover:text-brand-900 transition-colors font-semibold"
+            >
+              Zetawala
+            </a>
           </div>
         </div>
       </div>

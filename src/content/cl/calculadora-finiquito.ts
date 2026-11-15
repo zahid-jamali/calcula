@@ -253,31 +253,31 @@ Si el trabajador no está de acuerdo con la causal de despido aplicada, con los 
   relatedTools: [
     {
       title: 'Calculadora de Sueldo Líquido Chile',
-      path: '/cl/calculadora-sueldo-liquido',
+      path: '/cl/calculadora-sueldo-liquido/',
       description: 'Calcula tu sueldo neto mensual tras deducciones de AFP, Fonasa/Isapre e Impuesto Único de Segunda Categoría.',
     },
     {
-      title: 'Calculadora de Vacaciones y Feriado Legal',
-      path: '/cl/calculadora-vacaciones',
-      description: 'Determina los días hábiles y progresivos de descanso remunerado que tienes acumulados.',
+      title: 'Valor UF Hoy en Chile',
+      path: '/cl/valor-uf-hoy/',
+      description: 'Consulta el valor de la UF para revisar el tope legal de 90 UF en indemnizaciones.',
     },
     {
-      title: 'Calculadora de Horas Extraordinarias',
-      path: '/cl/calculadora-horas-extras',
-      description: 'Calcula el valor de tus horas extras con el recargo legal obligatorio del 50%.',
+      title: 'Valor UTM 2026 en Chile',
+      path: '/cl/valor-utm/',
+      description: 'Revisa el valor mensual de la UTM para los tramos del Impuesto Único y multas.',
     },
   ],
   relatedGuides: [
     {
-      title: 'Guía del Finiquito y Causal de Necesidades de la Empresa',
-      path: '/cl/guia-finiquito-necesidades-empresa',
+      title: 'Cómo Calcular el Finiquito Laboral',
+      path: '/cl/guias/como-calcular-el-finiquito/',
       description: 'Aprende a revisar cada ítem de tu finiquito y cómo estampar la reserva de derechos ante Notario.',
     },
     {
-      title: 'Guía de la Ley Bustos y Cotizaciones Previsionales',
-      path: '/cl/guia-ley-bustos',
-      description: 'Conoce cómo funciona la nulidad del despido cuando el empleador no ha pagado AFP o Fonasa.',
+      title: 'Indemnización por Años de Servicio',
+      path: '/cl/guias/indemnizacion-por-anos-de-servicio/',
+      description: 'Conoce las reglas de cálculo, tope de 11 años y límite de 90 UF.',
     },
   ],
-  updatedAt: '2026-01-01',
+  updatedAt: '2026-03-01',
 };

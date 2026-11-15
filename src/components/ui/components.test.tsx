@@ -346,13 +346,12 @@ describe('UI Components Suite', () => {
     expect(html).toContain('2026');
   });
 
-  it('renders AdSlot with reserved min-height 280px', () => {
+  it('renders AdSlot safely as null until ad network activation', () => {
     const html = renderToString(
       <AdSlot slotId="test-slot" minHeight="280px" />
     );
 
-    expect(html).toContain('min-height:280px');
-    expect(html).toContain('ad-slot');
+    expect(html).toBe('');
   });
 
   it('renders UpdatedBadge with localized text and time tag', () => {
