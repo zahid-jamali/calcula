@@ -29,3 +29,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# GSC & indexing files
+gsc-urls.txt
+gsc-priority-urls.txt
+urls-for-indexing.txt
+scratch-previews/
